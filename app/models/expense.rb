@@ -25,12 +25,12 @@ class Expense < ActiveRecord::Base
  	if search and search != ""
  		   # find(:all, :conditions => ['id = ?', "#{search}"])
  		   paginate :per_page => 13, :page => page,
- 		   :conditions => ['id = ?', "#{search}"]
+ 		   :conditions => ['id = ?', "#{search}"],:order => 'created_at desc'
 
     else 
  		  # find(:all,page)
  		  paginate :per_page => 13, :page => page,
- 		  :conditions => ["#{search}"]
+ 		  :conditions => ["#{search}"],:order => 'created_at desc'
 
  	end
  end
